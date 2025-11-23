@@ -1,0 +1,95 @@
+/* ===============================
+   KFC THEME for SB Admin 2
+   =============================== */
+
+/* BRAND COLORS */
+:root {
+    --kfc-red: #E4002B;
+    --kfc-dark: #A3001F;
+    --kfc-light: #FFCCD5;
+}
+
+/* ===== BACKGROUND ==== */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--kfc-red), var(--kfc-dark)) !important;
+}
+
+/* ===== BUTTONS ==== */
+.btn-primary {
+    background-color: var(--kfc-red) !important;
+    border-color: var(--kfc-dark) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--kfc-dark) !important;
+    border-color: var(--kfc-dark) !important;
+}
+
+/* Outlined button */
+.btn-outline-primary {
+    color: var(--kfc-red) !important;
+    border-color: var(--kfc-red) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--kfc-red) !important;
+    color: white !important;
+}
+
+/* ===== LINKS ==== */
+a {
+    color: var(--kfc-red);
+}
+
+a:hover {
+    color: var(--kfc-dark);
+}
+
+/* ===== SIDEBAR ==== */
+.sidebar {
+    background-color: var(--kfc-red) !important;
+}
+
+.sidebar .nav-item .nav-link,
+.sidebar .nav-item .collapse-item {
+    color: white !important;
+}
+
+.sidebar .nav-item .nav-link:hover {
+    background-color: var(--kfc-dark) !important;
+}
+
+/* ===== TOPBAR ==== */
+.topbar {
+    background-color: var(--kfc-red) !important;
+}
+
+.topbar .nav-link,
+.topbar .navbar-search input,
+.topbar .navbar-brand {
+    color: white !important;
+}
+
+/* ===== CARDS ==== */
+.card {
+    border-left: 4px solid var(--kfc-red) !important;
+}
+
+.card-header {
+    background-color: var(--kfc-light) !important;
+    border-bottom: 1px solid var(--kfc-red) !important;
+}
+
+/* ===== FORMS ==== */
+.form-control:focus {
+    border-color: var(--kfc-red) !important;
+    box-shadow: 0 0 0 0.2rem rgba(228, 0, 43, 0.25) !important;
+}
+
+/* ===== LOGIN IMAGE ==== */
+.bg-login-image {
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-image: url("https://upload.wikimedia.org/wikipedia/sco/b/bf/KFC_logo.svg");
+}
