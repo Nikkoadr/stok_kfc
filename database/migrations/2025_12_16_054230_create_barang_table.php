@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('conversion')->nullable();
             $table->integer('perpack');
+            $table->integer('stock')->default(0);
             $table->timestamps();
         });
     }

@@ -13,5 +13,6 @@ class Barang extends Model
         'description',
         'conversion',
         'perpack',
+        'stock',
     ];
 }
