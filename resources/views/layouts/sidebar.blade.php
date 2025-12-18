@@ -21,19 +21,22 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Data
-            </div>
-
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ Route('daftar_barang') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Daftar Stok</span></a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{ Route('hitung_so') }}">
+                    <i class="fas fa-fw fa-chart-bar"></i>
+                    <span>Hitung SO</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ Route('laporan') }}">
+                    <i class="fas fa-fw fa-chart-bar"></i>
+                    <span>Laporan</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

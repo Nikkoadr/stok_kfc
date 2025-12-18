@@ -78,21 +78,32 @@
 <script>
 $(function () {
 
-    // DATATABLE
+    // INIT DATATABLE
     $('#dataTable').DataTable({
-        responsive: true
+        responsive: true,
+        searching: true,
+        paging: true,
+        info: false,
+        lengthChange: true,
+        
+    dom:
+        "<'row mb-2'<'col-md-6'l><'col-md-6 text-right'f>>" +
+        "<'row'<'col-12'tr>>" +
+        "<'row mt-2'<'col-md-5'i><'col-md-7'p>>"
     });
 
-    // DELETE CONFIRM
-    $('.btnDelete').click(function () {
+    // DELETE CONFIRM (WAJIB EVENT DELEGATION)
+    $(document).on('click', '.btnDelete', function () {
         let form = $(this).closest('form');
+
         Swal.fire({
             title: 'Hapus data?',
-            text: 'Data ini akan dihapus permanen.',
+            text: 'Data akan dihapus permanen.',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
-            confirmButtonText: 'Ya, hapus!'
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
                 form.submit();
@@ -102,4 +113,5 @@ $(function () {
 
 });
 </script>
+
 @endsection

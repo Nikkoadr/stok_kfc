@@ -48,4 +48,40 @@ class BarangController extends Controller
 
         return redirect()->route('daftar_barang')->with('success', 'Barang berhasil ditambahkan.');
     }
+
+    public function edit(Request $request)
+    {
+        $barang = Barang::findOrFail($request->id);
+        return view('barang.edit', compact('barang'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'item' => 'required|unique:barang,item,' . $id,
+            'description' => 'nullable|string',
+            'conversion' => 'nullable|string',
+            'perpack' => 'required|integer|min:1',
+            'stock' => 'integer|min:0',
+        ]);
+
+        $barang = Barang::findOrFail($id);
+        $barang->update([
+            'item' => $request->item,
+            'description' => $request->description,
+            'conversion' => $request->conversion,
+            'perpack' => $request->perpack,
+            'stock' => $request->stock,
+        ]);
+
+        return redirect()->route('daftar_barang')->with('success', 'Barang berhasil diperbarui.');
+    }
+
+    public function destroy(Request $request)
+    {
+        $barang = Barang::findOrFail($request->id);
+        $barang->delete();
+
+        return redirect()->route('daftar_barang')->with('success', 'Barang berhasil dihapus.');
+    }
 }
