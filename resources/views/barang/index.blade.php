@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
-@section('link')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap4.min.css">
+@section('links')
+<link rel="stylesheet" href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
 
 @section('content')
-<div class="container-fluid">
 
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="h3 text-gray-800">Data Barang</h1>
@@ -14,10 +13,10 @@
         </button>
     </div>
 
-    <div class="card shadow">
+    <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable">
+                <table class="table table-bordered" id="data_barang" width="100%" cellspacing="0">
                     <thead class="thead-light">
                         <tr>
                             <th>Item</th>
@@ -39,14 +38,14 @@
                             <td>
                                 {{-- EDIT --}}
                                 <a href="{{ route('barang.edit', $barang->id) }}"
-                                   class="btn btn-warning btn-sm">
+                                class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
 
                                 {{-- DELETE --}}
                                 <form action="{{ route('barang.destroy', $barang->id) }}"
-                                      method="POST"
-                                      class="d-inline formDelete">
+                                    method="POST"
+                                    class="d-inline formDelete">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button"
@@ -63,8 +62,6 @@
         </div>
     </div>
 
-</div>
-
 {{-- MODAL TAMBAH --}}
 @include('barang.modal-tambah')
 
@@ -72,27 +69,17 @@
 
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap4.min.js"></script>
+<script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
 <script>
-$(function () {
+$(document).ready(function() {
+$('#data_barang').DataTable();
 
-    // INIT DATATABLE
-    $('#dataTable').DataTable({
-        responsive: true,
-        searching: true,
-        paging: true,
-        info: false,
-        lengthChange: true,
-        
-    dom:
-        "<'row mb-2'<'col-md-6'l><'col-md-6 text-right'f>>" +
-        "<'row'<'col-12'tr>>" +
-        "<'row mt-2'<'col-md-5'i><'col-md-7'p>>"
-    });
+});
+</script>
 
-    // DELETE CONFIRM (WAJIB EVENT DELEGATION)
+<script>
     $(document).on('click', '.btnDelete', function () {
         let form = $(this).closest('form');
 
@@ -110,8 +97,6 @@ $(function () {
             }
         });
     });
-
-});
 </script>
 
 @endsection

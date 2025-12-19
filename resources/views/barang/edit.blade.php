@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('link')
+@section('links')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap4.min.css">
 @endsection
 @section('content')

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('link')
+@section('links')
 @endsection
 
 @section('content')
