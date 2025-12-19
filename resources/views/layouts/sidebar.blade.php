@@ -28,7 +28,7 @@
                     <span>Daftar Stok</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ Route('hitung_so') }}">
+                <a class="nav-link" href="{{ Route('hitung.create') }}">
                     <i class="fas fa-fw fa-chart-bar"></i>
                     <span>Hitung SO</span></a>
             </li>

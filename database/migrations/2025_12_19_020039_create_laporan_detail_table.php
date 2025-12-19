@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('laporan_detail', function (Blueprint $table) {
             $table->id();
             $table->foreignId('laporan_id')->constrained('laporan')->onDelete('cascade');
-            $table->foreignId('item_name')->constrained('items')->onDelete('cascade');
+            $table->foreignId('barang_id')->constrained('barang')->onDelete('cascade');
             $table->integer('query_stok_card');
             $table->integer('fisik_barang');
             $table->integer('selisih');

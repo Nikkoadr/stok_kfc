@@ -18,5 +18,6 @@ Route::post('/barang/store', [BarangController::class, 'store'])->name('barang.s
 Route::get('/barang/form_edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
 Route::put('/barang/form_update/{id}', [BarangController::class, 'update'])->name('barang.update');
 Route::delete('/barang/destroy/{id}', [BarangController::class, 'destroy'])->name('barang.destroy');
-Route::get('/hitung/so', [HitungController::class, 'hitung_so'])->name('hitung_so');
+Route::get('/hitung', [HitungController::class, 'create'])->name('hitung.create');
+Route::post('/hitung', [HitungController::class, 'store'])->name('hitung.store');
 Route::get('/laporan', [HitungController::class, 'laporan'])->name('laporan');
