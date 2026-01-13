@@ -1,48 +1,52 @@
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <img src="https://upload.wikimedia.org/wikipedia/sco/b/bf/KFC_logo.svg" alt="KFC Logo" style="width: 40px;">
-                </div>
-                <div class="sidebar-brand-text mx-3">Stok KFC </div>
-            </a>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <img src="https://upload.wikimedia.org/wikipedia/sco/b/bf/KFC_logo.svg" alt="KFC Logo" style="width: 40px; filter: brightness(0) invert(1);">
+        </div>
+        <div class="sidebar-brand-text mx-3">Inventory KFC</div>
+    </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+    <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('home') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('home') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+    <hr class="sidebar-divider">
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ Route('produk.index') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Daftar Stok</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('stok-opname.index') }}">
-                    <i class="fas fa-fw fa-chart-bar"></i>
-                    <span>Hitung</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-chart-bar"></i>
-                    <span>Laporan</span></a>
-            </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+    <div class="sidebar-heading">
+        Manajemen Stok
+    </div>
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('produk.index') }}">
+            <i class="fas fa-fw fa-boxes"></i>
+            <span>Daftar Stok</span>
+        </a>
+    </li>
 
-        </ul>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('stok-opname.index') }}">
+            <i class="fas fa-fw fa-clipboard-check"></i>
+            <span>Stok Opname</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('laporan.index') }}">
+            <i class="fas fa-fw fa-file-invoice"></i>
+            <span>Laporan Stok</span>
+        </a>
+    </li>
+
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>
