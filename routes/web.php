@@ -18,4 +18,4 @@ Route::resource('produk', ProdukController::class)->except(['show']);
 Route::get('stok-opname', [StokOpnameController::class, 'index'])->name('stok-opname.index');
 Route::post('stok-opname', [StokOpnameController::class, 'store'])->name('stok-opname.store');
 Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
-Route::get('/laporan/pdf/{tanggal}', [LaporanController::class, 'exportPdf'])->name('laporan.pdf');
+Route::get('/laporan/pdf/{tanggal}', [LaporanController::class, 'cetakPdf'])->name('laporan.pdf');

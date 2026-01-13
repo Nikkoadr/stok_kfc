@@ -84,7 +84,7 @@ class StokOpnameController extends Controller
 
             $selisihPcs = $totalFisikPcs - $stokSistem;
 
-            DetailStokOpname::create([
+            DetailStokOpname::updateOrCreate([
                 'stok_harian_id'  => $stokHarian->id,
                 'produk_id'       => $produkId,
                 'isi_per_satuan'  => $produk->isi_per_satuan,

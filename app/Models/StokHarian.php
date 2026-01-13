@@ -32,4 +32,9 @@ class StokHarian extends Model
     {
         return $this->hasOne(DetailStokOpname::class);
     }
+
+    public function detailStokOpname()
+    {
+        return $this->hasMany(DetailStokOpname::class, 'stok_harian_id');
+    }
 }

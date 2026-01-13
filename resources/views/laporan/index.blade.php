@@ -18,26 +18,26 @@
                     <tr>
                         <th>No</th>
                         <th>Tanggal</th>
-                        <th>Total Stok Sistem</th>
-                        <th>Total Stok Aktual</th>
-                        <th>Total Selisih</th>
                         <th width="100">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse($tanggalList as $i => $row)
                     <tr>
-                        <td>12</td>
-                        <td>dasdas</td>
-                        <td>dasd</td>
-                        <td>sadsd</td>
-                        <td>dasd</td>
-                        <td>
-                            <a href="#" 
-                               class="btn btn-success btn-sm" target="_blank">
+                        <td>{{ $i + 1 }}</td>
+                        <td>{{ \Carbon\Carbon::parse($row->tanggal)->format('d-m-Y') }}</td>
+                        <td class="text-center">
+                            <a href="{{ route('laporan.pdf', $row->tanggal->format('Y-m-d')) }}" 
+                               class="btn btn-danger btn-sm" target="_blank">
                                 <i class="fas fa-file-pdf"></i> PDF
                             </a>
                         </td>
                     </tr>
+                    @empty
+                    <tr>
+                        <td colspan="3" class="text-center text-muted">Belum ada data stok opname.</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
@@ -54,7 +54,14 @@
 <script>
 $(document).ready(function() {
     $('#data_laporan').DataTable({
-        order: [[1, 'desc']]
+        order: [[1, 'desc']],
+        language: {
+            "lengthMenu": "Tampilkan _MENU_ data per halaman",
+            "zeroRecords": "Tidak ada data ditemukan",
+            "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Tidak ada data tersedia",
+            "infoFiltered": "(disaring dari total _MAX_ data)"
+        }
     });
 });
 </script>

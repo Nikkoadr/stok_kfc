@@ -2,25 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DetailStokOpname;
+use App\Models\StokHarian;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class LaporanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        // Ambil semua tanggal unik yang sudah ada di stok_harian
+        $tanggalList = StokHarian::select('tanggal')
+            ->groupBy('tanggal')
+            ->orderByDesc('tanggal')
+            ->get();
 
-        return view('laporan.index');
+        return view('laporan.index', compact('tanggalList'));
     }
 
-    public function exportPdf($tanggal)
+    public function cetakPdf($tanggal)
     {
-        $data = DetailStokOpname::with('produk')
+        $stokHarian = StokHarian::with(['detailStokOpname.produk'])
             ->where('tanggal', $tanggal)
             ->get();
 
-        $pdf = PDF::loadView('laporan.pdf', compact('data', 'tanggal'));
-        return $pdf->download("laporan_opname_$tanggal.pdf");
+        $pdf = Pdf::loadView('laporan.pdf', compact('stokHarian', 'tanggal'))
+            ->setPaper('A4', 'landscape');
+
+        return $pdf->stream("Laporan_Stok_Opname_$tanggal.pdf");
     }
 }
