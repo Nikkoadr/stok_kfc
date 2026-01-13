@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\BarangController;
-use App\Http\Controllers\HitungController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\StokOpnameController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,11 +13,6 @@ Route::get('/', function () {
 Auth::routes(['register' => false]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/daftar_barang', [BarangController::class, 'index'])->name('daftar_barang');
-Route::post('/barang/store', [BarangController::class, 'store'])->name('barang.store');
-Route::get('/barang/form_edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
-Route::put('/barang/form_update/{id}', [BarangController::class, 'update'])->name('barang.update');
-Route::delete('/barang/destroy/{id}', [BarangController::class, 'destroy'])->name('barang.destroy');
-Route::get('/hitung', [HitungController::class, 'create'])->name('hitung.create');
-Route::post('/hitung', [HitungController::class, 'store'])->name('hitung.store');
-Route::get('/laporan', [HitungController::class, 'laporan'])->name('laporan');
+Route::resource('produk', ProdukController::class)->except(['show']);
+Route::get('stok-opname', [StokOpnameController::class, 'index'])->name('stok-opname.index');
+Route::post('stok-opname', [StokOpnameController::class, 'store'])->name('stok-opname.store');

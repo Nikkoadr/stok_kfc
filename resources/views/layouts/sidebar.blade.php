@@ -23,17 +23,17 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ Route('daftar_barang') }}">
+                <a class="nav-link" href="{{ Route('produk.index') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Daftar Stok</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ Route('hitung.create') }}">
+                <a class="nav-link" href="{{ route('stok-opname.index') }}">
                     <i class="fas fa-fw fa-chart-bar"></i>
-                    <span>Hitung SO</span></a>
+                    <span>Hitung</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ Route('laporan') }}">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-bar"></i>
                     <span>Laporan</span></a>
             </li>

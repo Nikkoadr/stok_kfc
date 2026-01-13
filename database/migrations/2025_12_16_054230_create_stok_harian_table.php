@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Tabel Produk
-        Schema::create('produk', function (Blueprint $table) {
+
+        // Tabel Stok Harian (Penampung sisa malam)
+        Schema::create('stok_harian', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_produk')->unique();
-            $table->string('nama_produk');
-            $table->string('satuan_besar')->default('Pack');
-            $table->integer('isi_per_satuan');
-            $table->string('satuan_kecil')->default('Pcs');
+            $table->foreignId('produk_id')->constrained('produk');
+            $table->date('tanggal');
+            $table->integer('sisa_malam_pcs');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produk');
+        Schema::dropIfExists('stok_harian');
     }
 };
