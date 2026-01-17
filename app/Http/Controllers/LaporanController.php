@@ -26,7 +26,7 @@ class LaporanController extends Controller
             ->get();
 
         $pdf = Pdf::loadView('laporan.pdf', compact('stokHarian', 'tanggal'))
-            ->setPaper('A4', 'landscape');
+            ->setPaper('A4', 'portrait');
 
         return $pdf->stream("Laporan_Stok_Opname_$tanggal.pdf");
     }
